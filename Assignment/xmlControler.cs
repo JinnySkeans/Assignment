@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Xml;
 
 namespace Assignment
@@ -15,7 +16,7 @@ namespace Assignment
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
-            XmlNode ROOT = doc.SelectSingleNode("/book_library");
+            XmlNode ROOT = doc.SelectSingleNode("/library");
             XmlNode Book = doc.CreateElement("book");
             XmlNode Title = doc.CreateElement("title");
             XmlNode Author = doc.CreateElement("author");
@@ -27,9 +28,9 @@ namespace Assignment
             Title.InnerText = newBook.title;
             Author.InnerText = newBook.author;
             Year.InnerText = newBook.year;
-            Publisher.InnerText = newBook.year;
-            ISBN.InnerText = newBook.length.ToString();
-            Category.InnerText = newBook.rating;
+            Publisher.InnerText = newBook.publisher;
+            ISBN.InnerText = newBook.isbn.ToString();
+            Category.InnerText = newBook.category;
 
             Book.AppendChild(Title);
             Book.AppendChild(Author);
@@ -42,13 +43,18 @@ namespace Assignment
             doc.Save(path);
         }
 
-        public void deleteBook(string title)
+        public bool deleteBook(string title)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlNode nodes = doc.SelectSingleNode("//book[title = '" + title + "']");
-            nodes.ParentNode.RemoveChild(nodes);
+            XmlNode node = doc.SelectSingleNode("//book[title = '" + title + "']");
+            if (node == null)
+            {
+                return false;
+            }
+            node.ParentNode.RemoveChild(node);
             doc.Save(path);
+            return true;
 
         }
 

@@ -24,5 +24,13 @@ namespace Assignment
         {
             InitializeComponent();
         }
+
+        private void btnAddRecord_Click(object sender, RoutedEventArgs e)
+        {
+            //manageBooks manageBooks = new manageBooks();
+            //manageBooks.Show();
+            SearchBook searchBooks = new SearchBook();
+            searchBooks.Show();
+        }
     }
 }

@@ -34,19 +34,16 @@ namespace Assignment
             newBook.author = txtAuthor.Text;
             newBook.year = txtYear.Text;
             newBook.publisher = txtPublisher.Text;
-            newBook.isbn = int.Parse(txtISBN.Text);
+            if (int.TryParse(txtISBN.Text, out int ISBN) == false) 
+            {
+                MessageBox.Show("An ISBN must be a number");
+                return;
+            }
+            newBook.isbn = ISBN;
             newBook.category = txtCategory.Text;
 
             xmlC.AddBook(newBook);
-        }
-
-        private void btnDeleteBook_Click(object sender, RoutedEventArgs e)
-        {
-            Book newBook = new Book();
-
-            newBook.title = txtTitle.Text;
-
-            xmlC.deleteBook(txtTitle.Text);
+            MessageBox.Show("Book Record Added");
         }
 
         private void btnUpdateBook_Click(object sender, RoutedEventArgs e)
@@ -61,7 +58,23 @@ namespace Assignment
             newBook.category = txtCategory.Text;
 
             xmlC.updateBook(txtTitle.Text, newBook);
+            MessageBox.Show("Book Record Updated");
 
         }
+
+        private void btnDeleteBook_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (xmlC.deleteBook(txtTitle.Text))
+            {
+                MessageBox.Show("Book Successfully Deleted.");
+            }
+            else
+            {
+                MessageBox.Show("Book Record Could Not Be Found.");
+            }
+            
+        }
+
+
     }
 }

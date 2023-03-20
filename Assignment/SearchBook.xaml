@@ -1,0 +1,28 @@
+﻿<Window x:Class="Assignment.SearchBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment"
+        mc:Ignorable="d"
+        Title="SearchBook" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dgBooks" HorizontalAlignment="Center" Height="182" Margin="0,35,0,0" VerticalAlignment="Top" Width="694" />
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="325,283,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtISBN" HorizontalAlignment="Left" Margin="325,339,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="325,312,0,0" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.5,0.5">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.224"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="Title" HorizontalAlignment="Left" Height="39" Margin="221,277,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label Content="Author" HorizontalAlignment="Left" Height="39" Margin="221,304,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label Content="ISBN" HorizontalAlignment="Left" Height="39" Margin="221,331,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="31" Margin="518,331,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnSearch_Click"/>
+    </Grid>
+</Window>
