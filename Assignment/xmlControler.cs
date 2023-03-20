@@ -74,5 +74,33 @@ namespace Assignment
 
 
         }
+
+        public void checkoutBook(string title, DateTime dueDate, string checkedOutBy)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNode oldBook = doc!.SelectSingleNode("//book[title='" + title + "']");
+            if (oldBook == null)
+            {
+                MessageBox.Show($"We do not stock '{title}'.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(oldBook.ChildNodes.Item(6).InnerText)== false)
+            {
+                MessageBox.Show($"{oldBook.ChildNodes.Item(0).InnerText} is currently checked out,\nPlease check back later.");
+                return;
+            }
+
+            oldBook.ChildNodes.Item(6).InnerText = checkedOutBy;
+            oldBook.ChildNodes.Item(7).InnerText = dueDate.ToShortDateString();
+
+            //to clear the value 
+            //oldBook.ChildNodes.Item(6).InnerText = string.Empty;
+            
+            doc.Save(path);
+            MessageBox.Show("Booking Succesful.");
+
+        }
     }
 }

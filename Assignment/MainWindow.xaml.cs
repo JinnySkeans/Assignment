@@ -29,7 +29,7 @@ namespace Assignment
         {
             //manageBooks manageBooks = new manageBooks();
             //manageBooks.Show();
-            SearchBook searchBooks = new SearchBook();
+            CheckoutReturn searchBooks = new CheckoutReturn();
             searchBooks.Show();
         }
     }

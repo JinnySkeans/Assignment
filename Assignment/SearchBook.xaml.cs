@@ -32,16 +32,6 @@ namespace Assignment
 
             DataView dv = ds.Tables[0].DefaultView;
 
-            StringBuilder sb = new StringBuilder();
-            foreach (DataColumn column in dv.Table.Columns)
-            {
-                sb.AppendFormat("[{0}] Like '%{1}%' OR ", column.ColumnName, "Bob");
-            }
-
-            //sb.Remove(sb.Length - 3, 3);
-            //dv.RowFilter = sb.ToString();
-
-            //dv.RowFilter = $"[title] Like '%{txtTitle.Text}%' OR [author] Like '%{txtAuthor.Text}%' OR [ISBN] Like '%{txtISBN.Text}%' ";
             StringBuilder filter = new StringBuilder(); 
             if (string.IsNullOrWhiteSpace(txtTitle.Text) == false)
             {

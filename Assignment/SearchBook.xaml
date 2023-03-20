@@ -8,9 +8,9 @@
         Title="SearchBook" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="dgBooks" HorizontalAlignment="Center" Height="182" Margin="0,35,0,0" VerticalAlignment="Top" Width="694" />
-        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="325,283,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <TextBox x:Name="txtISBN" HorizontalAlignment="Left" Margin="325,339,0,0" TextWrapping="Wrap" Text="ISBN" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="325,312,0,0" TextWrapping="Wrap" Text="Author" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="325,283,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtISBN" HorizontalAlignment="Left" Margin="325,339,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="325,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
