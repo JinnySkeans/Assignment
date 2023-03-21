@@ -32,5 +32,11 @@ namespace Assignment
             CheckoutReturn searchBooks = new CheckoutReturn();
             searchBooks.Show();
         }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            Option option = new Option();
+            option.Show();
+        }
     }
 }

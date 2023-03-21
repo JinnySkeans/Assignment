@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnAddRecord" Content="Button" HorizontalAlignment="Center" Margin="0,190,0,0" VerticalAlignment="Top" Height="44" Width="64" Click="btnAddRecord_Click"/>
-
+        <Label Content="WELCOME" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" FontSize="24"/>
+        <Button x:Name="btnStart" Content="START" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Click="btnStart_Click"/>
     </Grid>
 </Window>
