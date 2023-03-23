@@ -86,7 +86,7 @@ namespace Assignment
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(oldBook.ChildNodes.Item(6).InnerText)== false)
+            if (string.IsNullOrWhiteSpace(oldBook.ChildNodes.Item(6).InnerText) == false)
             {
                 MessageBox.Show($"{oldBook.ChildNodes.Item(0).InnerText} is currently checked out,\nPlease check back later.");
                 return;
@@ -97,10 +97,34 @@ namespace Assignment
 
             //to clear the value 
             //oldBook.ChildNodes.Item(6).InnerText = string.Empty;
-            
+
             doc.Save(path);
             MessageBox.Show("Booking Succesful.");
 
+        }
+
+        public void returnBook(string title)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(path);
+            XmlNode oldBook = doc!.SelectSingleNode("//book[title='" + title + "']");
+            if (oldBook == null)
+            {
+                MessageBox.Show($"We do not stock '{title}'.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(oldBook.ChildNodes.Item(6).InnerText) == true)
+            {
+                MessageBox.Show($"You have currently not checked out {oldBook.ChildNodes.Item(0).InnerText}.");
+                return;
+            }
+
+            oldBook.ChildNodes.Item(6).InnerText = string.Empty;
+            oldBook.ChildNodes.Item(7).InnerText = string.Empty;
+
+            doc.Save(path);
+            MessageBox.Show("Return Succesful.");
         }
     }
 }

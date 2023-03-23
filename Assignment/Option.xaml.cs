@@ -26,8 +26,8 @@ namespace Assignment
 
         private void btnMember_Click(object sender, RoutedEventArgs e)
         {
-            Member member = new Member();
-            member.Show();
+            SearchBook searchBook = new SearchBook();
+            searchBook.Show();
         }
 
         private void btnStaff_Click(object sender, RoutedEventArgs e)

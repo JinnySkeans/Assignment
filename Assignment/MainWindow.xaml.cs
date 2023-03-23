@@ -25,14 +25,6 @@ namespace Assignment
             InitializeComponent();
         }
 
-        private void btnAddRecord_Click(object sender, RoutedEventArgs e)
-        {
-            //manageBooks manageBooks = new manageBooks();
-            //manageBooks.Show();
-            CheckoutReturn searchBooks = new CheckoutReturn();
-            searchBooks.Show();
-        }
-
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             Option option = new Option();
