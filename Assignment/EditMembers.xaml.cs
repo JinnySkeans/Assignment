@@ -19,7 +19,7 @@ namespace Assignment
     /// </summary>
     public partial class EditMembers : Window
         {
-            private XmlController xmlCm;
+            private XmlControllerM xmlCm;
             public EditMembers()
             {
                 xmlCm = new XmlControllerM();
@@ -67,7 +67,7 @@ namespace Assignment
             newMember.county = txtCounty.Text;
             newMember.postcode = txtPostcode.Text;
 
-            xmlCm.updateBook(txtLibraryID.Text, newMember);
+            xmlCm.updateMember(txtLibraryID.Text, newMember);
             MessageBox.Show("Member Record Updated");
 
         }
