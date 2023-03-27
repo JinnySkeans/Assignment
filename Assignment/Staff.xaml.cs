@@ -24,10 +24,16 @@ namespace Assignment
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
             manageBooks manageBooks = new manageBooks();
             manageBooks.Show();
+        }
+
+        private void btnEditMembers_Click (object sender, RoutedEventArgs e) 
+        {
+            EditMembers editMembers = new EditMembers();
+            editMembers.Show();
         }
     }
 }

@@ -8,7 +8,8 @@
         Title="Staff" Height="450" Width="800">
     <Grid>
         <Label Content="What would you like to do?" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="24"/>
-        <Button x:Name="btnEdit" Content="Edit Books" HorizontalAlignment="Left" Margin="153,150,0,0" VerticalAlignment="Top" Click="Button_Click" FontSize="16" Height="32" Width="105"/>
+        <Button x:Name="btnEdit" Content="Edit Books" HorizontalAlignment="Left" Margin="153,150,0,0" VerticalAlignment="Top" Click="btnEdit_Click" FontSize="16" Height="32" Width="105"/>
+        <Button x:Name="btnEditMember" Content="Edit Members" HorizontalAlignment="Left" Margin="153,0,0,0" VerticalAlignment="Center" Click="btnEditMembers_Click" FontSize="16" Height="32" Width="105"/>
 
     </Grid>
 </Window>
