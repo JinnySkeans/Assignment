@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         Title="EditMembers" Height="450" Width="800">
     <Grid>
-        <TextBox HorizontalAlignment="Left" Margin="198,0,0,303" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
-        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Margin="198,0,0,303" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Margin="198,0,0,302" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
         <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Margin="198,0,0,351" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
         <TextBox x:Name="txtLibraryID" HorizontalAlignment="Left" Margin="198,0,0,32" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
         <TextBox x:Name="txtPostcode" HorizontalAlignment="Left" Margin="198,0,0,78" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
@@ -16,11 +15,11 @@
         <TextBox x:Name="txtCity" HorizontalAlignment="Left" Margin="198,239,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="16"/>
         <TextBox x:Name="txtSecondAddress" HorizontalAlignment="Left" Margin="198,0,0,214" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Bottom" Width="120" FontSize="16"/>
         <TextBox x:Name="txtFirstAddress" HorizontalAlignment="Left" Margin="198,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="38,56,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Library ID" HorizontalAlignment="Left" Margin="37,368,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="PostCode" HorizontalAlignment="Left" Margin="38,322,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="County" HorizontalAlignment="Left" Margin="34,281,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="City" HorizontalAlignment="Left" Margin="35,230,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" FontSize="16" Width="109"/>
+        <Label Content="Library ID" HorizontalAlignment="Left" Margin="9,369,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="PostCode" HorizontalAlignment="Left" Margin="10,323,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="County" HorizontalAlignment="Left" Margin="6,282,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="7,231,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -30,9 +29,9 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label Content="Second Line Address" HorizontalAlignment="Left" Margin="34,193,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="First Line Address" HorizontalAlignment="Left" Margin="34,147,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label Content="Second Name" HorizontalAlignment="Left" Margin="38,109,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Second Line Address" HorizontalAlignment="Left" Margin="6,194,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="First Line Address" HorizontalAlignment="Left" Margin="6,148,0,0" VerticalAlignment="Top" FontSize="16" Width="141"/>
+        <Label Content="Second Name" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="btnAddMember" Content="Add" HorizontalAlignment="Left" Margin="367,284,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.297,-9.362" FontSize="16" Width="96" Height="28" Click="btnAddMember_Click"/>
         <Button x:Name="btnDeleteMember" Content="Delete" HorizontalAlignment="Left" Margin="367,317,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.297,-9.362" FontSize="16" Width="96" Height="28" Click="btnDeleteMember_Click"/>
         <Button x:Name="btnUpdateMember" Content="Update" HorizontalAlignment="Left" Margin="367,350,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.297,-9.362" FontSize="16" Width="96" Height="28" Click="btnUpdateMember_Click"/>
