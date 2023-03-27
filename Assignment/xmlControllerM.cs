@@ -67,7 +67,7 @@ namespace Assignment
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlNode oldMember = doc!.SelectSingleNode("//member[libraryID='" + libraryID + "']");
+            XmlNode oldMember = doc!.SelectSingleNode("//members[libraryID='" + libraryID + "']");
             oldMember.ChildNodes.Item(0).InnerText = newMember.firstName;
             oldMember.ChildNodes.Item(1).InnerText = newMember.lastName;
             oldMember.ChildNodes.Item(2).InnerText = newMember.firstLineAddress;
