@@ -7,8 +7,10 @@ using System.Xml;
 
 namespace Assignment
 {
+    //MEMBERS XML CONTROLLER
     public class XmlControllerM
     {
+        //uses members.xml load pathway
         string path = "Members.xml";
         public void AddMember(Member newMember)
         {
@@ -19,29 +21,20 @@ namespace Assignment
             XmlNode Member = doc.CreateElement("member");
             XmlNode FirstName = doc.CreateElement("first_name");
             XmlNode SecondName = doc.CreateElement("second_name");
-            XmlNode FirstLineAddress = doc.CreateElement("address_line_1");
-            XmlNode SecondLineAddress = doc.CreateElement("address_line_2");
-            XmlNode City = doc.CreateElement("city");
-            XmlNode County = doc.CreateElement("county");
-            XmlNode Postcode = doc.CreateElement("postcode");
+            XmlNode Email = doc.CreateElement("email");
+            XmlNode Phone = doc.CreateElement("phone");
             XmlNode LibraryID = doc.CreateElement("library_card_number");
 
             FirstName.InnerText = newMember.firstName;
             SecondName.InnerText = newMember.lastName;
-            FirstLineAddress.InnerText = newMember.firstLineAddress;
-            SecondLineAddress.InnerText = newMember.secondLineAddress;
-            City.InnerText = newMember.city;
-            County.InnerText = newMember.county;
-            Postcode.InnerText = newMember.postcode;
+            Email.InnerText = newMember.email;
+            Phone.InnerText = newMember.phone;
             LibraryID.InnerText = newMember.libraryID;
 
             Member.AppendChild(FirstName);
             Member.AppendChild(SecondName);
-            Member.AppendChild(FirstLineAddress);
-            Member.AppendChild(SecondLineAddress);
-            Member.AppendChild(City);
-            Member.AppendChild(County);
-            Member.AppendChild(Postcode);
+            Member.AppendChild(Email);
+            Member.AppendChild(Phone);
             Member.AppendChild(LibraryID);
 
             ROOT.AppendChild(Member);
@@ -52,7 +45,7 @@ namespace Assignment
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlNode node = doc.SelectSingleNode("//member[libraryID = '" + libraryID + "']");
+            XmlNode node = doc.SelectSingleNode("/members/member[library_card_number = '" + libraryID + "']");
             if (node == null)
             {
                 return false;
@@ -67,14 +60,13 @@ namespace Assignment
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
-            XmlNode oldMember = doc!.SelectSingleNode("//members[libraryID='" + libraryID + "']");
+            XmlNode oldMember = doc!.SelectSingleNode("/members/member[library_card_number ='" + libraryID + "']");
             oldMember.ChildNodes.Item(0).InnerText = newMember.firstName;
             oldMember.ChildNodes.Item(1).InnerText = newMember.lastName;
-            oldMember.ChildNodes.Item(2).InnerText = newMember.firstLineAddress;
-            oldMember.ChildNodes.Item(3).InnerText = newMember.secondLineAddress;
-            oldMember.ChildNodes.Item(4).InnerText = newMember.city;
-            oldMember.ChildNodes.Item(5).InnerText = newMember.county;
-            oldMember.ChildNodes.Item(6).InnerText = newMember.postcode;
+            oldMember.ChildNodes.Item(2).InnerText = newMember.email;
+            oldMember.ChildNodes.Item(3).InnerText = newMember.phone;
+            oldMember.ChildNodes.Item(4).InnerText = newMember.libraryID;
+            
 
             doc.Save(path);
         }

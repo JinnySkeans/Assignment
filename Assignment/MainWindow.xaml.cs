@@ -25,6 +25,7 @@ namespace Assignment
             InitializeComponent();
         }
 
+        //event button to change window
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             Option option = new Option();

@@ -26,14 +26,18 @@ namespace Assignment
             InitializeComponent();
         }
 
+        //event button for adding a book
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
+            //sets newbook
             Book newBook = new Book();
 
+            //uses text boxes to fill the xml
             newBook.title = txtTitle.Text;
             newBook.author = txtAuthor.Text;
             newBook.year = txtYear.Text;
             newBook.publisher = txtPublisher.Text;
+            //if statement to check the user has input numbers
             if (int.TryParse(txtISBN.Text, out int ISBN) == false) 
             {
                 MessageBox.Show("An ISBN must be a number");
@@ -41,11 +45,12 @@ namespace Assignment
             }
             newBook.isbn = ISBN;
             newBook.category = txtCategory.Text;
-
+            //calls method
             xmlC.AddBook(newBook);
             MessageBox.Show("Book Record Added");
         }
 
+        //event update book button
         private void btnUpdateBook_Click(object sender, RoutedEventArgs e)
         {
             Book newBook = new Book();
@@ -57,13 +62,16 @@ namespace Assignment
             newBook.isbn = int.Parse(txtISBN.Text);
             newBook.category = txtCategory.Text;
 
+            //calls method from xmlC
             xmlC.updateBook(txtTitle.Text, newBook);
             MessageBox.Show("Book Record Updated");
 
         }
 
+        //delete book button event
         private void btnDeleteBook_Click_1(object sender, RoutedEventArgs e)
         {
+            //if statement to delete book, if title exists delete, if not display error
             if (xmlC.deleteBook(txtTitle.Text))
             {
                 MessageBox.Show("Book Successfully Deleted.");

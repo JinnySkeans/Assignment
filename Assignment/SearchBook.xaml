@@ -8,9 +8,9 @@
         Title="SearchBook" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="dgBooks" HorizontalAlignment="Center" Height="182" Margin="0,217,0,0" VerticalAlignment="Top" Width="694" SelectionChanged="dgBooks_SelectionChanged" />
-        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="157,116,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <TextBox x:Name="txtISBN" HorizontalAlignment="Left" Margin="157,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="157,144,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.5,0.5">
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="157,78,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtISBN" HorizontalAlignment="Left" Margin="157,134,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="157,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16" RenderTransformOrigin="0.5,0.5">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -20,11 +20,14 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Label Content="Title" HorizontalAlignment="Left" Height="38" Margin="53,110,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
-        <Label Content="Author" HorizontalAlignment="Left" Height="40" Margin="53,136,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
-        <Label Content="ISBN" HorizontalAlignment="Left" Height="38" Margin="53,164,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label Content="Title" HorizontalAlignment="Left" Height="38" Margin="53,72,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label Content="Author" HorizontalAlignment="Left" Height="40" Margin="53,98,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Label Content="ISBN" HorizontalAlignment="Left" Height="38" Margin="53,126,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
         <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="31" Margin="307,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnSearch_Click"/>
-        <Button x:Name="btnCheckout" Content="Checkout" HorizontalAlignment="Left" Height="31" Margin="421,117,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnCheckout_Click"/>
-        <Button x:Name="btnReturn" Content="Return" HorizontalAlignment="Left" Height="31" Margin="421,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnReturn_Click"/>
+        <Button x:Name="btnCheckout" Content="Checkout" HorizontalAlignment="Left" Height="31" Margin="420,73,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnCheckout_Click"/>
+        <Button x:Name="btnReturn" Content="Return" HorizontalAlignment="Left" Height="31" Margin="420,117,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnReturn_Click"/>
+        <Button x:Name="btnRenew" Content="Renew" HorizontalAlignment="Left" Height="31" Margin="420,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnRenew_Click"/>
+        <TextBox x:Name="txtLibraryID" HorizontalAlignment="Left" Margin="157,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
+        <Label Content="Library ID" HorizontalAlignment="Left" Height="38" Margin="53,154,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
     </Grid>
 </Window>

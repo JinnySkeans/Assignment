@@ -19,6 +19,7 @@ namespace Assignment
     /// </summary>
     public partial class EditMembers : Window
         {
+            //sets document to be used as xmlCm
             private XmlControllerM xmlCm;
             public EditMembers()
             {
@@ -26,23 +27,24 @@ namespace Assignment
                 InitializeComponent();
             }
 
+            //event for adding a member on button click
             private void btnAddMember_Click(object sender, RoutedEventArgs e)
             {
                 Member newMember = new Member();
 
+                //uses the txtBoxes to say what is oing to be used to put in to the xml document
                 newMember.firstName = txtFirstName.Text;
                 newMember.lastName = txtLastName.Text;
-                newMember.firstLineAddress = txtFirstAddress.Text;
-            newMember.secondLineAddress = txtSecondAddress.Text;
-                newMember.city = txtCity.Text;
-                newMember.county = txtCounty.Text;
-                newMember.postcode = txtPostcode.Text;
+                newMember.email = txtEmail.Text;
+                newMember.phone = txtPhone.Text;
                 newMember.libraryID = txtLibraryID.Text;
-
+                
+                //calls method
                 xmlCm.AddMember(newMember);
                 MessageBox.Show("Member Record Added");
             }
 
+        //event for delete member
         private void btnDeleteMember_Click(object sender, RoutedEventArgs e)
         {
             if (xmlCm.deleteMember(txtLibraryID.Text))
@@ -54,18 +56,16 @@ namespace Assignment
                 MessageBox.Show("Member Record Could Not Be Found.");
             }
         }
-
+         //event for update member
         private void btnUpdateMember_Click(object sender, RoutedEventArgs e)
         {
             Member newMember = new Member();
 
             newMember.firstName = txtFirstName.Text;
             newMember.lastName = txtLastName.Text;
-            newMember.firstLineAddress = txtFirstAddress.Text;
-            newMember.secondLineAddress = txtSecondAddress.Text;
-            newMember.city = txtCity.Text;
-            newMember.county = txtCounty.Text;
-            newMember.postcode = txtPostcode.Text;
+            newMember.email = txtEmail.Text;
+            newMember.phone = txtPhone.Text;
+            
 
             xmlCm.updateMember(txtLibraryID.Text, newMember);
             MessageBox.Show("Member Record Updated");
