@@ -82,6 +82,7 @@ namespace Assignment
             }
             //if not then give due date and ask for confirmation
             DateTime dueDate = DateTime.Now.AddDays(14);
+            Member currentUser = new Member();
             MessageBoxResult mbr = MessageBox.Show("Your book will be due back on: " + dueDate.ToShortDateString() + "\nIs this okay?", "Confirmation", MessageBoxButton.YesNo);
 
             //if answer to messagebox is no, cancel and return display box
@@ -93,7 +94,7 @@ namespace Assignment
 
             //if yes call method
             XmlController xmlc = new XmlController();
-            xmlc.checkoutBook(txtTitle.Text, dueDate, "TEMPORARY");
+            xmlc.checkoutBook(txtTitle.Text, dueDate,"currentUser");
 
         }
 
