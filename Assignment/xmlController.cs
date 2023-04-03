@@ -32,7 +32,7 @@ namespace Assignment
             XmlNode ISBN = doc.CreateElement("isbn");
             XmlNode Category = doc.CreateElement("category");
 
-            //
+            
             Title.InnerText = newBook.title;
             Author.InnerText = newBook.author;
             Year.InnerText = newBook.year;
@@ -90,7 +90,7 @@ namespace Assignment
         }
 
         //method for checkingout a book
-        public void checkoutBook(string title, DateTime dueDate, string checkedOutBy)
+        public void checkoutBook(string title, DateTime dueDate, string user)
         {
             //loads xml document
             XmlDocument doc = new XmlDocument();
@@ -113,7 +113,7 @@ namespace Assignment
             }
 
             //if not update the checkedout and due date nodes
-            oldBook.ChildNodes.Item(6).InnerText = checkedOutBy;
+            oldBook.ChildNodes.Item(6).InnerText = user;
             oldBook.ChildNodes.Item(7).InnerText = dueDate.ToShortDateString();
 
             //save and display successful

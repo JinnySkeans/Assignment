@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,53 +16,50 @@ using System.Xml;
 namespace Assignment
 {
     /// <summary>
-    /// Interaction logic for MemberLogin.xaml
+    /// Interaction logic for StaffLogin.xaml
     /// </summary>
-    public partial class MemberLogin : Window
+    public partial class StaffLogin : Window
     {
         //sets document to be used as xmlCm
         private XmlControllerM xmlCm;
 
-        public MemberLogin()
+        public StaffLogin()
         {
             xmlCm = new XmlControllerM();
             InitializeComponent();
         }
 
-        private void btnMemberLogin_Click(object sender, RoutedEventArgs e)
-        {   
+        private void btnStaffLogin_Click(object sender, RoutedEventArgs e)
+        {
             //string settings the libraryID as the value of the text box
-            string libraryID = txtLibraryID.Text;
-            
-            //should call the Member class and set currentUser to the contents of string libraryID
-            Member member = new Member();
-            member.currentUser = libraryID;
-            
+            string staffID = txtStaffID.Text;
+
             //calls xml document
             XmlDocument doc = new XmlDocument();
-            doc.Load("Members.xml");
-           
+            doc.Load("Staff.xml");
+
             //compares the library_card_number in teh xml with the libraryID string
-            XmlNode oldMember = doc!.SelectSingleNode("/members/member[library_card_number ='" + libraryID + "']");
+            XmlNode staff = doc!.SelectSingleNode("/staff/librarian[staff_card_number ='" + staffID + "']");
             //uses the txtBoxes to say what is going to be used to put in to the xml document          
 
             //if statement to check if the member exists and displays a message if not
-            if (oldMember == null)
+            if (staff == null)
             {
-                MessageBox.Show($"User: '{libraryID}' not found, please try again.");
+                MessageBox.Show($"User: '{staffID}' not found, please try again.");
                 return;
             }
 
             //if statement to check if the LibraryID is correct and grant access with display message
-            if (string.IsNullOrWhiteSpace(oldMember.ChildNodes.Item(4).InnerText) == false)
+            if (string.IsNullOrWhiteSpace(staff.ChildNodes.Item(2).InnerText) == false)
             {
                 //if it does have contents display message and grant access
-                MessageBox.Show($"Welcome, {oldMember.ChildNodes.Item(0).InnerText}");
-                
+                MessageBox.Show($"Welcome, {staff.ChildNodes.Item(0).InnerText}");
 
-                SearchBook searchBook = new SearchBook();
-                searchBook.Show();
+
+                Staff newStaff = new Staff();
+                newStaff.Show();
             }
         }
     }
 }
+

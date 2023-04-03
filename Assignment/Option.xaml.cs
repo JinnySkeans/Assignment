@@ -32,8 +32,8 @@ namespace Assignment
 
         private void btnStaff_Click(object sender, RoutedEventArgs e)
         {
-            Staff staff = new Staff();
-            staff.Show();
+            StaffLogin staffLogin = new StaffLogin();
+            staffLogin.Show();
         }
     }
 }
