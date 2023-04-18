@@ -90,8 +90,10 @@ namespace Assignment
         }
 
         //method for checkingout a book
-        public void checkoutBook(string title, DateTime dueDate, string user)
+        public void checkoutBook(string title, DateTime dueDate, string currentUser)
         {
+            Singleton single = Singleton.GetInstance();
+            currentUser = single.currentUser;
             //loads xml document
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
@@ -113,7 +115,7 @@ namespace Assignment
             }
 
             //if not update the checkedout and due date nodes
-            oldBook.ChildNodes.Item(6).InnerText = user;
+            oldBook.ChildNodes.Item(6).InnerText = single.currentUser;
             oldBook.ChildNodes.Item(7).InnerText = dueDate.ToShortDateString();
 
             //save and display successful

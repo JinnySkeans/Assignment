@@ -35,16 +35,16 @@ namespace Assignment
         {   
             //string settings the libraryID as the value of the text box
             string libraryID = txtLibraryID.Text;
-            
-            //should call the Member class and set currentUser to the contents of string libraryID
-            Member member = new Member();
-            member.currentUser = libraryID;
+
+            // calls the Singleton class and set currentUser to the contents of the text box
+            Singleton single = Singleton.GetInstance();
+            single.currentUser = txtLibraryID.Text;
             
             //calls xml document
             XmlDocument doc = new XmlDocument();
             doc.Load("Members.xml");
            
-            //compares the library_card_number in teh xml with the libraryID string
+            //compares the library_card_number in the xml with the libraryID string
             XmlNode oldMember = doc!.SelectSingleNode("/members/member[library_card_number ='" + libraryID + "']");
             //uses the txtBoxes to say what is going to be used to put in to the xml document          
 

@@ -23,11 +23,10 @@
         <Label Content="Title" HorizontalAlignment="Left" Height="38" Margin="53,72,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
         <Label Content="Author" HorizontalAlignment="Left" Height="40" Margin="53,98,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
         <Label Content="ISBN" HorizontalAlignment="Left" Height="38" Margin="53,126,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="31" Margin="307,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnSearch_Click"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="31" Margin="307,117,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnSearch_Click"/>
         <Button x:Name="btnCheckout" Content="Checkout" HorizontalAlignment="Left" Height="31" Margin="420,73,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnCheckout_Click"/>
         <Button x:Name="btnReturn" Content="Return" HorizontalAlignment="Left" Height="31" Margin="420,117,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnReturn_Click"/>
         <Button x:Name="btnRenew" Content="Renew" HorizontalAlignment="Left" Height="31" Margin="420,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnRenew_Click"/>
-        <TextBox x:Name="txtLibraryID" HorizontalAlignment="Left" Margin="157,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="16"/>
-        <Label Content="Library ID" HorizontalAlignment="Left" Height="38" Margin="53,154,0,0" VerticalAlignment="Top" Width="116" FontSize="16"/>
+        <Button x:Name="btnMyLoans" Content="My Loans" HorizontalAlignment="Left" Height="31" Margin="307,161,0,0" VerticalAlignment="Top" Width="93" FontSize="16" Click="btnMyLoans_Click"/>
     </Grid>
 </Window>

@@ -13,7 +13,7 @@ namespace Assignment
         public string email { get; set; }
         public string phone { get; set; }
         public string libraryID { get; set; }
-        public string currentUser { get; set; } 
+        public string currentUser { get; set; }
 
     }
 }

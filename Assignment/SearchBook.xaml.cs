@@ -50,10 +50,7 @@ namespace Assignment
             {
                 filter.Append($" [isbn] Like '%{txtISBN.Text}%' OR");
             }
-            if (string.IsNullOrWhiteSpace(txtLibraryID.Text) == false)
-            {
-                filter.Append($" [checked_out_by] Like '%{txtLibraryID.Text}%' OR");
-            }
+
 
 
             filter.Remove(filter.Length - 3, 3);
@@ -74,9 +71,9 @@ namespace Assignment
         //event for checkout
         private void btnCheckout_Click(object sender, RoutedEventArgs e)
         {
-            string user = "";
+            string user;
             Member member = new Member();
-            member.currentUser = user;
+            user = member.currentUser;
 
             //if box is empty display message
             if (string.IsNullOrWhiteSpace(txtTitle.Text))
@@ -86,7 +83,7 @@ namespace Assignment
             }
             //if not then give due date and ask for confirmation
             DateTime dueDate = DateTime.Now.AddDays(14);
-            
+
             MessageBoxResult mbr = MessageBox.Show("Your book will be due back on: " + dueDate.ToShortDateString() + "\nIs this okay?", "Confirmation", MessageBoxButton.YesNo);
 
             //if answer to messagebox is no, cancel and return display box
@@ -98,7 +95,7 @@ namespace Assignment
 
             //if yes call method
             XmlController xmlc = new XmlController();
-            xmlc.checkoutBook(txtTitle.Text, dueDate, "current user");
+            xmlc.checkoutBook(txtTitle.Text, dueDate, user);
 
         }
 
@@ -145,7 +142,38 @@ namespace Assignment
 
         }
 
+        private void btnMyLoans_Click(object sender, RoutedEventArgs e)
+        {
+            string currentUser;
+            Singleton single = Singleton.GetInstance();
+            currentUser = single.currentUser;
 
+            //fills datagrid with the contents of the xml file
+            DataSet ds = new DataSet();
+            ds.ReadXml(@"Library.xml");
+
+            //defines how to view the data
+            DataView dv = ds.Tables[0].DefaultView;
+
+            //if statement to check title first, then author and then ISBN allowing all to be searched
+            StringBuilder filter = new StringBuilder();
+
+
+            if (string.IsNullOrWhiteSpace(currentUser) == false)
+            {
+                filter.Append($"[checked_Out_By] Like '%{currentUser}%' OR");
+            }
+            
+
+            filter.Remove(filter.Length - 3, 3);
+            dv.RowFilter = filter.ToString();
+
+            dgBooks.ItemsSource = dv;
+            dgBooks.Items.Refresh();
+        }
     }
 }
+
+  
+
 
