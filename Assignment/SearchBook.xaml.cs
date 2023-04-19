@@ -66,6 +66,7 @@ namespace Assignment
 
             DataRowView row = dgBooks.SelectedItem as DataRowView;
             txtTitle.Text = (row.Row.ItemArray[0].ToString());
+            dgBooks.Items.Refresh();
         }
 
         //event for checkout
@@ -96,6 +97,7 @@ namespace Assignment
             //if yes call method
             XmlController xmlc = new XmlController();
             xmlc.checkoutBook(txtTitle.Text, dueDate, user);
+            dgBooks.Items.Refresh();
 
         }
 
@@ -118,6 +120,7 @@ namespace Assignment
 
             XmlController xmlc = new XmlController();
             xmlc.returnBook(txtTitle.Text);
+            dgBooks.Items.Refresh();
         }
 
         //event to renew a book
@@ -139,6 +142,7 @@ namespace Assignment
 
             XmlController xmlc = new XmlController();
             xmlc.renewBook(txtTitle.Text, dueDate);
+            dgBooks.Items.Refresh();
 
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,6 +71,44 @@ namespace Assignment
             xmlCm.updateMember(txtLibraryID.Text, newMember);
             MessageBox.Show("Member Record Updated");
 
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            //fills datagrid with the contents of the xml file
+            DataSet ds = new DataSet();
+            ds.ReadXml(@"Members.xml");
+
+            //defines how to view the data
+            DataView dv = ds.Tables[0].DefaultView;
+
+            //if statement to check title first, then author and then ISBN allowing all to be searched
+            StringBuilder filter = new StringBuilder();
+            if (string.IsNullOrWhiteSpace(txtFirstName.Text) == false)
+            {
+                filter.Append($"[first_name] Like '%{txtFirstName.Text}%' OR");
+            }
+            if (string.IsNullOrWhiteSpace(txtEmail.Text) == false)
+            {
+                filter.Append($" [email] Like '%{txtEmail.Text}%' OR");
+            }
+            if (string.IsNullOrWhiteSpace(txtPhone.Text) == false)
+            {
+                filter.Append($" [phone] Like '%{txtPhone.Text}%' OR");
+            }
+
+            filter.Remove(filter.Length - 3, 3);
+            dv.RowFilter = filter.ToString();
+
+            dgMember.ItemsSource = dv;
+            dgMember.Items.Refresh();
+        }
+
+        private void dgMember_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView row = dgMember.SelectedItem as DataRowView;
+            txtFirstName.Text = (row.Row.ItemArray[0].ToString());
+            dgMember.Items.Refresh();
         }
     }
 }
